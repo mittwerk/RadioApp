@@ -3,4 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">[203:e93b:9902:9064:5efe:575b:3284:e1d2]</domain>
     </domain-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">203:e93b:9902:9064:5efe:575b:3284:e1d2</domain>
+    </domain-config>
 </network-security-config>
