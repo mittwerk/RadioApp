@@ -10,6 +10,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.sharp.Close
 import androidx.compose.material.icons.sharp.PlayArrow
@@ -31,6 +32,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import dagger.hilt.android.AndroidEntryPoint
 import space.mittwerk.radioapp.ui.theme.RadioAppTheme
 
@@ -56,7 +59,8 @@ object RadioStreams
 {
     val domain = "[203:e93b:9902:9064:5efe:575b:3284:e1d2]"
     val port = 8000
-    val defaultStream = "stream.ogg"
+    val streams = listOf("synthwave", "psytrance", "stream.ogg")
+    val defaultStream = streams[0]
     fun getStream(s: String? = null): String
     {
         val stream = if(s == null) defaultStream else s
@@ -97,12 +101,12 @@ fun PlayStopButton(modifier: Modifier = Modifier) {
             colors = ButtonDefaults.buttonColors(
             )
         ) {
-            //val imgResource = if (!isPlayState) painterResource(id = R.drawable.ic_play) else painterResource(id = R.drawable.ic_pause)
-            Icon(
-                imageVector = if (isPlayState) Icons.Sharp.Close else Icons.Sharp.PlayArrow,
-                contentDescription = if (isPlayState) "Stop" else "Play"
-            )
-            //Image(imgResource, contentDescription = if (isPlayState) "Stop" else "Play")
+            val imgResource = if (!isPlayState) painterResource(id = R.drawable.ic_play) else painterResource(id = R.drawable.ic_pause)
+            //Icon(
+            //    imageVector = if (isPlayState) Icons.Sharp.Close else Icons.Sharp.PlayArrow,
+            //    contentDescription = if (isPlayState) "Stop" else "Play"
+           // )
+            Image(imgResource, contentDescription = if (isPlayState) "Stop" else "Play", modifier = Modifier.size(32.dp))
         }
     }
 }
