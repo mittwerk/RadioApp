@@ -6,8 +6,12 @@ import java.io.IOException
 
 class RadioStream(val domain: String, val port: Int, val mountPoint: String)
 {
+    override fun toString(): String
+    {
+        return BuildFullLink(useClearHttp = true)
+    }
     fun BuildFullLink(useClearHttp: Boolean = false) = (if (useClearHttp) "http://" else "https://") + "${domain}:$port/$mountPoint"
-    data class Builder(var domain: String, var port:Int, var mountPoint: String)
+    data class Builder(var domain: String = "", var port:Int = 0, var mountPoint: String = "")
     {
         fun domain(domain: String): Builder {
             this.domain = domain
@@ -37,7 +41,7 @@ object StreamsGrabber
         val request = Request.Builder()
             .url(url)
             .build()
-
+        //println("load url: $url")
         val html = try {
             val response = client.newCall(request).execute()
             if (!response.isSuccessful) {
@@ -45,6 +49,14 @@ object StreamsGrabber
             }
             response.body?.string() ?: throw IOException("Empty response body")
         } catch (e: IOException) {
+            e.printStackTrace()
+            ""
+        }catch (e: java.net.SocketTimeoutException)
+        {
+            e.printStackTrace()
+            ""
+        }catch(e: Exception)
+        {
             e.printStackTrace()
             ""
         }
