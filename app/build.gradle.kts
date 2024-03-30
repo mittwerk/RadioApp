@@ -78,7 +78,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
+        kotlinCompilerExtensionVersion = "1.5.11"
     }
     packaging {
         resources {
@@ -106,6 +106,8 @@ dependencies {
     annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.paging)
     ksp(libs.androidx.room.compiler)
+
+    implementation(libs.radiobrowser4j)
 
     implementation(libs.hilt.android)
     ksp(libs.androidx.hilt.compiler)
@@ -172,6 +174,8 @@ dependencies {
     implementation(libs.orbit.compose)
 
     implementation(libs.ktor.client.websockets)
+
+    implementation(libs.lottie.compose)
 
     implementation(libs.haze.materials)
     implementation(libs.haze)

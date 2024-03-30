@@ -1,4 +1,3 @@
 package space.mittwerk.features
 
-class MyClass {
-}
+class MyClass
