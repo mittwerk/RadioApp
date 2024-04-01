@@ -190,11 +190,29 @@ dependencies {
 
     implementation(libs.kotlinx.datetime)
 
+    // Core KMP module
+    implementation(libs.flowmvi.core)
+    // compose multiplatform
+    implementation(libs.flowmvi.compose)
+    // saving and restoring state
+    implementation(libs.flowmvi.savedstate)
+    // essenty integration
+    implementation(libs.flowmvi.essenty)
+    implementation(libs.flowmvi.essenty.compose)
+    // testing DSL
+    implementation(libs.flowmvi.test)
+    // android integration
+    implementation(libs.flowmvi.android)
+    // remote debugging client
+    implementation(libs.flowmvi.debugger.plugin)
+
     implementation(libs.play.services.location)
 
     implementation(libs.molecule.runtime)
 
     implementation(libs.timber)
+
+    implementation(libs.decompose)
 
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
