@@ -180,10 +180,6 @@ dependencies {
     implementation(libs.haze.materials)
     implementation(libs.haze)
 
-    implementation(libs.mvicore)
-    implementation(libs.mvicore.android)
-    implementation(libs.mvicore.diff)
-
     implementation(libs.exoplayer.core)
     implementation(libs.exoplayer.dash)
     implementation(libs.exoplayer.ui)
@@ -196,15 +192,12 @@ dependencies {
     implementation(libs.flowmvi.compose)
     // saving and restoring state
     implementation(libs.flowmvi.savedstate)
-    // essenty integration
-    implementation(libs.flowmvi.essenty)
-    implementation(libs.flowmvi.essenty.compose)
     // testing DSL
-    implementation(libs.flowmvi.test)
+    testImplementation(libs.flowmvi.test)
     // android integration
     implementation(libs.flowmvi.android)
     // remote debugging client
-    implementation(libs.flowmvi.debugger.plugin)
+    debugImplementation(libs.flowmvi.debugger.plugin)
 
     implementation(libs.play.services.location)
 
@@ -212,16 +205,8 @@ dependencies {
 
     implementation(libs.timber)
 
-    implementation(libs.decompose)
-
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-
-    implementation(libs.circuit.foundation)
-    implementation(libs.circuit.overlay)
-    implementation(libs.circuit.backstack)
-    implementation(libs.circuit.runtime)
-    ksp(libs.circuit.codegen)
 
     implementation(libs.coil.compose)
     implementation(libs.coil)

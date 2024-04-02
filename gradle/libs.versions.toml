@@ -11,7 +11,6 @@ constraintlayout-compose = "1.0.1"
 core-splashscreen = "1.0.1"
 dagger-android = "2.51"
 datastore = "1.0.0"
-decompose = "2.2.2"
 detekt = "1.23.6"
 desugar_jdk_libs = "2.0.4"
 dependencygraph = "0.12"
@@ -120,10 +119,6 @@ appyx-navigation-android = { module = "com.bumble.appyx:appyx-navigation-android
 appyx-processor = { module = "com.bumble.appyx:appyx-processor", version.ref = "appyx-navigation-android" }
 backstack-android = { module = "com.bumble.appyx:backstack-android", version.ref = "appyx-navigation-android" }
 
-decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
-mvicore = { module = "com.github.badoo.mvicore:mvicore", version.ref = "mvicore" }
-mvicore-android = { module = "com.github.badoo.mvicore:mvicore-android", version.ref = "mvicore" }
-mvicore-diff = { module = "com.github.badoo.mvicore:mvicore-diff", version.ref = "mvicore" }
 radiobrowser4j = { module = "de.sfuhrm:radiobrowser4j", version.ref = "radiobrowser4j" }
 spotlight-android = { module = "com.bumble.appyx:spotlight-android", version.ref = "appyx-navigation-android" }
 
@@ -161,20 +156,10 @@ kopykat-ksp = { module = "at.kopyk:kopykat-ksp", version.ref = "kopykat-ksp" }
 
 flowmvi-core = { module = "pro.respawn.flowmvi:core", version.ref = "flowmvi" }
 flowmvi-android = { module = "pro.respawn.flowmvi:android", version.ref = "flowmvi" }
-flowmvi-essenty = { module = "pro.respawn.flowmvi:essenty", version.ref = "flowmvi" }
-flowmvi-essenty-compose = { module = "pro.respawn.flowmvi:essenty-compose", version.ref = "flowmvi" }
 flowmvi-test = { module = "pro.respawn.flowmvi:test", version.ref = "flowmvi" }
 flowmvi-savedstate = { module = "pro.respawn.flowmvi:savedstate", version.ref = "flowmvi" }
 flowmvi-compose = { module = "pro.respawn.flowmvi:compose", version.ref = "flowmvi" }
 flowmvi-debugger-plugin = { module = "pro.respawn.flowmvi:debugger-plugin", version.ref = "flowmvi" }
-
-
-
-circuit-backstack = { module = "com.slack.circuit:circuit-backstack", version.ref = "circuit-foundation" }
-circuit-codegen = { module = "com.slack.circuit:circuit-codegen", version.ref = "circuit-foundation" }
-circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit-foundation" }
-circuit-overlay = { module = "com.slack.circuit:circuit-overlay", version.ref = "circuit-foundation" }
-circuit-runtime = { module = "com.slack.circuit:circuit-runtime", version.ref = "circuit-foundation" }
 
 coil = { module = "io.coil-kt:coil", version.ref = "coil-compose" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
