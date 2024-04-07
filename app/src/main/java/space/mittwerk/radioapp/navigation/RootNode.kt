@@ -17,22 +17,26 @@ import com.bumble.appyx.navigation.composable.AppyxNavigationContainer
 import com.bumble.appyx.navigation.modality.NodeContext
 import com.bumble.appyx.navigation.node.Node
 import com.bumble.appyx.navigation.node.node
+import jakarta.inject.Inject
 
-open class RootNode(
+
+open class RootNode
+@Inject
+constructor(
     nodeContext: NodeContext,
     private val backStack: BackStack<NavTarget> =
         BackStack(
             model =
-                BackStackModel(
-                    initialTarget = NavTarget.Child1,
-                    savedStateMap = nodeContext.savedStateMap,
-                ),
+            BackStackModel(
+                initialTarget = NavTarget.Child1,
+                savedStateMap = nodeContext.savedStateMap,
+            ),
             visualisation = { BackStackFader(it) },
         ),
 ) : Node<NavTarget>(
-        appyxComponent = backStack,
-        nodeContext = nodeContext,
-    ) {
+    appyxComponent = backStack,
+    nodeContext = nodeContext,
+) {
     override fun buildChildNode(
         navTarget: NavTarget,
         nodeContext: NodeContext,
@@ -58,9 +62,9 @@ open class RootNode(
             Row(
                 horizontalArrangement = Arrangement.Center,
                 modifier =
-                    Modifier
-                        .fillMaxWidth()
-                        .weight(0.1f),
+                Modifier
+                    .fillMaxWidth()
+                    .weight(0.1f),
             ) {
                 TextButton(onClick = { backStack.push(NavTarget.Child1) }) {
                     Text(text = "Push child 1")

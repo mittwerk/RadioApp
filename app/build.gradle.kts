@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
@@ -13,7 +12,6 @@ plugins {
 
 secrets {
     propertiesFileName = "local.properties"
-    ignoreList.add("keyToIgnore")
 }
 
 android {
@@ -52,17 +50,6 @@ android {
                 "proguard-rules.pro",
             )
         }
-
-        create("benchmark") {
-            initWith(getByName("release"))
-            signingConfig = signingConfigs.getByName("debug")
-        }
-        create("benchmark1") {
-            initWith(buildTypes.getByName("release"))
-            signingConfig = signingConfigs.getByName("debug")
-            matchingFallbacks += listOf("release")
-            isDebuggable = false
-        }
     }
 
     compileOptions {
@@ -88,56 +75,87 @@ android {
 }
 
 dependencies {
-
+    // Core
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
     implementation(libs.androidx.core.splashscreen)
-
     implementation(libs.androidx.runtime.tracing)
 
+    // Jetpack Compose
+    implementation(platform(libs.compose.bom))
+    implementation(libs.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.material3)
+
+    // Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Immutable collections
     implementation(libs.kotlinx.collections.immutable)
-    implementation(libs.logging.interceptor)
 
-    implementation(libs.androidx.constraintlayout.compose)
-
+    // Database
+    annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.paging)
     ksp(libs.androidx.room.compiler)
 
+    implementation(libs.androidx.sqlite)
+    implementation(libs.android.database.sqlcipher)
+
+    // Radio API
     implementation(libs.radiobrowser4j)
 
+    // Dependency injection
     implementation(libs.hilt.android)
-    ksp(libs.androidx.hilt.compiler)
-    ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.hilt.work)
-
-    implementation(libs.dagger.android)
-    implementation(libs.dagger.android.support)
+    ksp(libs.androidx.hilt.compiler)
+    ksp(libs.hilt.compiler)
     annotationProcessor(libs.dagger.android.processor)
     annotationProcessor(libs.dagger.compiler)
+    implementation(libs.dagger.android)
+    implementation(libs.dagger.android.support)
 
+    // Worker
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.work.multiprocess)
 
+    // Paging
     implementation(libs.androidx.paging.runtime.ktx)
     implementation(libs.androidx.paging.compose)
 
+    // Accompanist
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.placeholder.material)
 
+    // Serialization
     implementation(libs.kotlinx.serialization.json)
 
+    // Datastore
     implementation(libs.androidx.datastore)
     implementation(libs.androidx.datastore.preferences)
 
+    // Ktorfit
     implementation(libs.ktorfit.lib)
     ksp(libs.ktorfit.ksp)
-    implementation(libs.ktor.client.okhttp)
 
+    // Http client
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.websockets)
+
+    // Interceptor
+    implementation(libs.logging.interceptor)
+
+    // Functional programming
     implementation(platform(libs.arrow.stack))
     implementation(libs.arrow.core)
     implementation(libs.arrow.core.retrofit)
@@ -151,21 +169,26 @@ dependencies {
     implementation(libs.arrow.optics.reflect)
     ksp(libs.arrow.optics.ksp.plugin)
 
+    // Mapping
     ksp(libs.kopykat.ksp)
 
-    implementation(libs.ktor.client.content.negotiation)
-
+    // Crash reporting
     implementation(libs.acra.mail)
+    implementation(libs.acra.http)
+    implementation(libs.acra.toast)
+    implementation(libs.acra.notification)
+    implementation(libs.acra.limiter)
+    implementation(libs.acra.advanced.scheduler)
     implementation(libs.acra.dialog)
 
+    // additional functional programming idioms
     implementation(libs.quiver)
     implementation(libs.quiver.test)
 
-    implementation(libs.androidx.sqlite)
-    implementation(libs.android.database.sqlcipher)
-
+    // Crypto
     implementation(libs.tink.android)
 
+    // Jsoup
     implementation(libs.jsoup)
 
     // Orbit MVI/MVVM+
@@ -173,41 +196,31 @@ dependencies {
     implementation(libs.orbit.viewmodel)
     implementation(libs.orbit.compose)
 
-    implementation(libs.ktor.client.websockets)
-
+    // Animations
     implementation(libs.lottie.compose)
 
+    // Blur
     implementation(libs.haze.materials)
     implementation(libs.haze)
 
+    // Exoplayer
     implementation(libs.exoplayer.core)
     implementation(libs.exoplayer.dash)
     implementation(libs.exoplayer.ui)
 
+    // Bottom Navigation Bar
+    implementation(libs.animated.navigation.bar)
+
+    // Datetime
     implementation(libs.kotlinx.datetime)
 
-    // Core KMP module
-    implementation(libs.flowmvi.core)
-    // compose multiplatform
-    implementation(libs.flowmvi.compose)
-    // saving and restoring state
-    implementation(libs.flowmvi.savedstate)
-    // testing DSL
-    testImplementation(libs.flowmvi.test)
-    // android integration
-    implementation(libs.flowmvi.android)
-    // remote debugging client
-    debugImplementation(libs.flowmvi.debugger.plugin)
-
-    implementation(libs.play.services.location)
-
+    // Molecule
     implementation(libs.molecule.runtime)
 
+    // Timber
     implementation(libs.timber)
 
-    implementation(libs.androidx.lifecycle.runtime.compose)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-
+    // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil)
     implementation(libs.coil.gif)
@@ -215,55 +228,49 @@ dependencies {
     implementation(libs.coil.video)
     implementation(libs.coil.svg)
 
+    // Desugaring
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.coroutines.android)
-
-    implementation(libs.appyx.navigation.android)
+    // Appyx
     implementation(libs.appyx.navigation.android)
     ksp(libs.appyx.processor)
     implementation(libs.backstack.android)
     implementation(libs.spotlight.android)
 
+    // Inject
     implementation(libs.jakarta.inject.api)
 
+    // Testing UI
     debugImplementation(libs.utils.testing.ui.activity)
     androidTestImplementation(libs.utils.testing.ui)
 
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
-
+    // Testing
     testImplementation(libs.orbit.test)
-
     testImplementation(libs.truth)
-
     testImplementation(libs.turbine)
-
     testImplementation(libs.androidx.paging.common.ktx)
-
     testImplementation(libs.coil.test)
-
     testImplementation(libs.konsist)
-
+    testImplementation(libs.junit)
     testImplementation(libs.kotest.runner.junit5)
     testImplementation(libs.kotest.property)
-
     testImplementation(libs.robolectric)
-
     testImplementation(libs.roborazzi)
     testImplementation(libs.roborazzi.compose)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.junit.jupiter.params)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.mockk)
 
+    // Android Testing
     androidTestImplementation(libs.androidx.work.testing)
     androidTestImplementation(platform(libs.compose.bom))
-    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
+
     debugImplementation(libs.ui.test.manifest)
 }

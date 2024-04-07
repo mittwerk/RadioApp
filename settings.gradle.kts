@@ -16,6 +16,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "RadioApp"
 include(":app")
-include(":benchmark")
-include(":features")
-include(":libraries")
