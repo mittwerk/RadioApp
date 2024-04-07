@@ -19,7 +19,6 @@ import com.bumble.appyx.navigation.node.Node
 import com.bumble.appyx.navigation.node.node
 import jakarta.inject.Inject
 
-
 open class RootNode
 @Inject
 constructor(
