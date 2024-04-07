@@ -41,7 +41,12 @@ constructor(
         nodeContext: NodeContext,
     ): Node<*> =
         when (navTarget) {
-            NavTarget.Child1 -> node(nodeContext) { Text(text = "Placeholder for child 1") }
+            NavTarget.Child1 -> node(nodeContext) {
+                Text(
+                    text = "Placeholder for child 1",
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
             NavTarget.Child2 -> node(nodeContext) { Text(text = "Placeholder for child 2") }
             NavTarget.Child3 -> SomeChildNode(nodeContext)
         }

@@ -19,14 +19,20 @@ import space.mittwerk.radioapp.ui.theme.RadioAppTheme
 
 @AndroidEntryPoint
 class MainActivity : NodeComponentActivity() {
+//    @Inject
+//    private lateinit var viewModel: SomeViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             enableEdgeToEdge(
                 statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
                 navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
             )
 
+            // Lifecycle.State.STARTED
+//            viewModel.observe(state = ::render, sideEffect = ::handleSideEffect)
             RadioAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(

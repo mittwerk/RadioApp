@@ -7,8 +7,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import space.mittwerk.radioapp.dispatcher.ContextProvider
-import space.mittwerk.radioapp.dispatcher.ContextProviderImpl
+import space.mittwerk.radioapp.dispatcher.CoroutineContextProvider
+import space.mittwerk.radioapp.dispatcher.CoroutineContextProviderImpl
 import javax.inject.Singleton
 
 @Module
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class AppModule {
     @Provides
     @Singleton
-    fun provideContextProvider(): ContextProvider = ContextProviderImpl()
+    fun provideContextProvider(): CoroutineContextProvider = CoroutineContextProviderImpl()
 
     @Provides
     @Singleton
