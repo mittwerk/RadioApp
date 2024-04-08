@@ -8,7 +8,7 @@ import com.bumble.appyx.navigation.modality.NodeContext
 class SomeChildNode(
     nodeContext: NodeContext,
 ) : RootNode(
-    nodeContext = nodeContext
+    nodeContext = nodeContext,
 ) {
     @Composable
     override fun Content(modifier: Modifier) {

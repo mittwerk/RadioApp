@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidTest)
     alias(libs.plugins.kotlinAndroid)
@@ -28,7 +27,7 @@ android {
         // This benchmark buildType is used for benchmarking, and should function like your
         // release build (for example, with minification on). It"s signed with a debug key
         // for easy local/CI testing.
-        create("benchmark1") {
+        create("benchmark") {
             isDebuggable = true
             signingConfig = getByName("debug").signingConfig
             matchingFallbacks += listOf("release")
@@ -36,6 +35,7 @@ android {
     }
 
     targetProjectPath = ":app"
+    @Suppress("UnstableApiUsage")
     experimentalProperties["android.experimental.self-instrumenting"] = true
 }
 

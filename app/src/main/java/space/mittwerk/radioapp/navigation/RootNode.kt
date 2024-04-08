@@ -17,26 +17,36 @@ import com.bumble.appyx.navigation.composable.AppyxNavigationContainer
 import com.bumble.appyx.navigation.modality.NodeContext
 import com.bumble.appyx.navigation.node.Node
 import com.bumble.appyx.navigation.node.node
+import jakarta.inject.Inject
 
-open class RootNode(
+open class RootNode
+@Inject
+constructor(
     nodeContext: NodeContext,
-    private val backStack: BackStack<NavTarget> = BackStack(
-        model = BackStackModel(
-            initialTarget = NavTarget.Child1,
-            savedStateMap = nodeContext.savedStateMap,
-        ),
-        visualisation = { BackStackFader(it) },
-
-
+    private val backStack: BackStack<NavTarget> =
+        BackStack(
+            model =
+            BackStackModel(
+                initialTarget = NavTarget.Child1,
+                savedStateMap = nodeContext.savedStateMap,
+            ),
+            visualisation = { BackStackFader(it) },
         ),
 ) : Node<NavTarget>(
     appyxComponent = backStack,
-    nodeContext = nodeContext
+    nodeContext = nodeContext,
 ) {
-
-    override fun buildChildNode(navTarget: NavTarget, nodeContext: NodeContext): Node<*> =
+    override fun buildChildNode(
+        navTarget: NavTarget,
+        nodeContext: NodeContext,
+    ): Node<*> =
         when (navTarget) {
-            NavTarget.Child1 -> node(nodeContext) { Text(text = "Placeholder for child 1") }
+            NavTarget.Child1 -> node(nodeContext) {
+                Text(
+                    text = "Placeholder for child 1",
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
             NavTarget.Child2 -> node(nodeContext) { Text(text = "Placeholder for child 2") }
             NavTarget.Child3 -> SomeChildNode(nodeContext)
         }
@@ -44,20 +54,21 @@ open class RootNode(
     @Composable
     override fun Content(modifier: Modifier) {
         Column(
-            modifier = modifier
+            modifier = modifier,
         ) {
             // Let's include the elements of our component into the composition
             AppyxNavigationContainer(
                 appyxComponent = backStack,
-                modifier = Modifier.weight(0.9f)
+                modifier = Modifier.weight(0.9f),
             )
 
             // Let's also add some controls so we can test it
             Row(
                 horizontalArrangement = Arrangement.Center,
-                modifier = Modifier
+                modifier =
+                Modifier
                     .fillMaxWidth()
-                    .weight(0.1f)
+                    .weight(0.1f),
             ) {
                 TextButton(onClick = { backStack.push(NavTarget.Child1) }) {
                     Text(text = "Push child 1")
@@ -75,4 +86,3 @@ open class RootNode(
         }
     }
 }
-

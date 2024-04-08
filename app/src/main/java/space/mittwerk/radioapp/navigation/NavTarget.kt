@@ -12,5 +12,4 @@ sealed class NavTarget : Parcelable {
 
     @Parcelize
     data object Child3 : NavTarget()
-
 }

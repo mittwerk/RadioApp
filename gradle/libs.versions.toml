@@ -1,32 +1,34 @@
 [versions]
 accompanist-systemuicontroller = "0.34.0"
-acra-dialog = "5.11.3"
+acra = "5.11.3"
 agp = "8.3.1"
 android-database-sqlcipher = "4.5.4"
-appyx-navigation-android = "2.0.0-alpha10"
-arrow = "1.2.2"
-circuit-foundation = "0.19.1"
+appyx = "2.0.0-alpha10"
+arrow = "1.2.4"
 coil-compose = "2.6.0"
-constraintlayout-compose = "1.0.1"
-core-splashscreen = "1.0.1"
-dagger-android = "2.51"
+splashscreen = "1.0.1"
+dagger-android = "2.51.1"
 datastore = "1.0.0"
-detekt = "1.23.5"
-desugar_jdk_libs = "2.0.4"
+detekt = "1.23.6"
+desugaring = "2.0.4"
 dependencygraph = "0.12"
-dependencycheck = "9.0.9"
+dependencycheck = "9.1.0"
 exoplayer-ui = "2.19.1"
-haze-materials = "0.5.3"
-hilt-android = "2.51"
+haze-materials = "0.6.2"
+hilt-android = "2.51.1"
+jUnit5Version = "5.10.2"
+assertionsVersion = "5.8.1"
+mockkVersion = "1.13.10"
+lottieVersion = "6.4.0"
 hilt-compiler = "1.2.0"
 hilt-work = "1.2.0"
 hilt-navigation-compose = "1.2.0"
 jakarta-inject-api = "2.0.1"
 jsoup = "1.17.2"
-konsist = "0.13.0"
+konsist = "0.15.1"
 kopykat-ksp = "1.0.4"
-kotest-runner-junit5 = "5.8.0"
-kotlin = "1.9.22"
+kotest-runner-junit5 = "5.8.1"
+kotlin = "1.9.23"
 ktlint = "12.1.0"
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -36,55 +38,50 @@ kotlinx-collections-immutable = "0.3.7"
 kotlinx-coroutines-android = "1.8.0"
 kotlinx-datetime = "0.5.0"
 kotlinx-serialization-json = "1.6.3"
-ktor-client-content-negotiation = "2.3.8"
-ktor-client-okhttp = "2.3.8"
-mvicore = "1.4.0"
-quiver = "0.5.0"
+ktor-client = "2.3.9"
+quiver = "0.5.1"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.8.2"
-compose-bom = "2024.02.02"
+compose-bom = "2024.04.00"
 ktorfit = "1.12.0"
-hilt = "2.50"
+hilt = "2.51"
 ksp = "1.9.23-1.0.19"
 logging-interceptor = "5.0.0-alpha.12"
-molecule-runtime = "1.4.0"
-orbit-core = "6.1.0"
-paging-runtime-ktx = "3.3.0-alpha04"
-play-services-location = "21.2.0"
-robolectric = "4.11.1"
-roborazzi = "1.10.1"
+molecule-runtime = "1.4.2"
+orbit-core = "7.0.1"
+paging-runtime-ktx = "3.3.0-beta01"
+radiobrowser4j = "3.0.0"
+robolectric = "4.12.1"
+roborazzi = "1.11.0"
 room-runtime = "2.6.1"
 runtime-tracing = "1.0.0-beta01"
-secrets-gradle-plugin = "2.0.1"
-serialization = "1.9.22"
+secrets = "2.0.1"
+serialization = "1.9.23"
 sqlite = "2.4.0"
 timber = "5.0.1"
-tink-android = "1.12.0"
+tink-android = "1.13.0"
 truth = "1.4.2"
-turbine = "1.0.0"
+turbine = "1.1.0"
 work-multiprocess = "2.9.0"
-org-jetbrains-kotlin-jvm = "1.9.22"
-appcompat = "1.6.1"
-material = "1.11.0"
 uiautomator = "2.3.0"
 benchmark-macro-junit4 = "1.2.3"
-
 
 [libraries]
 accompanist-placeholder-material = { module = "com.google.accompanist:accompanist-placeholder-material", version.ref = "accompanist-systemuicontroller" }
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
 
-acra-dialog = { module = "ch.acra:acra-dialog", version.ref = "acra-dialog" }
-acra-mail = { module = "ch.acra:acra-mail", version.ref = "acra-dialog" }
-
+acra-advanced-scheduler = { module = "ch.acra:acra-advanced-scheduler", version.ref = "acra" }
+acra-dialog = { module = "ch.acra:acra-dialog", version.ref = "acra" }
+acra-http = { module = "ch.acra:acra-http", version.ref = "acra" }
+acra-limiter = { module = "ch.acra:acra-limiter", version.ref = "acra" }
+acra-mail = { module = "ch.acra:acra-mail", version.ref = "acra" }
+acra-notification = { module = "ch.acra:acra-notification", version.ref = "acra" }
+acra-toast = { module = "ch.acra:acra-toast", version.ref = "acra" }
 
 android-database-sqlcipher = { module = "net.zetetic:android-database-sqlcipher", version.ref = "android-database-sqlcipher" }
 androidx-sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
 
-
-androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayout-compose" }
-
-androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
 
 androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
@@ -111,14 +108,12 @@ androidx-work-multiprocess = { module = "androidx.work:work-multiprocess", versi
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-multiprocess" }
 androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "work-multiprocess" }
 
-appyx-interactions-android = { module = "com.bumble.appyx:appyx-interactions-android", version.ref = "appyx-navigation-android" }
-appyx-navigation-android = { module = "com.bumble.appyx:appyx-navigation-android", version.ref = "appyx-navigation-android" }
-appyx-processor = { module = "com.bumble.appyx:appyx-processor", version.ref = "appyx-navigation-android" }
-backstack-android = { module = "com.bumble.appyx:backstack-android", version.ref = "appyx-navigation-android" }
-mvicore = { module = "com.github.badoo.mvicore:mvicore", version.ref = "mvicore" }
-mvicore-android = { module = "com.github.badoo.mvicore:mvicore-android", version.ref = "mvicore" }
-mvicore-diff = { module = "com.github.badoo.mvicore:mvicore-diff", version.ref = "mvicore" }
-spotlight-android = { module = "com.bumble.appyx:spotlight-android", version.ref = "appyx-navigation-android" }
+appyx-navigation-android = { module = "com.bumble.appyx:appyx-navigation-android", version.ref = "appyx" }
+appyx-processor = { module = "com.bumble.appyx:appyx-processor", version.ref = "appyx" }
+backstack-android = { module = "com.bumble.appyx:backstack-android", version.ref = "appyx" }
+
+radiobrowser4j = { module = "de.sfuhrm:radiobrowser4j", version.ref = "radiobrowser4j" }
+spotlight-android = { module = "com.bumble.appyx:spotlight-android", version.ref = "appyx" }
 
 dagger-android = { module = "com.google.dagger:dagger-android", version.ref = "dagger-android" }
 dagger-android-processor = { module = "com.google.dagger:dagger-android-processor", version.ref = "dagger-android" }
@@ -127,14 +122,15 @@ dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = 
 
 jakarta-inject-api = { module = "jakarta.inject:jakarta.inject-api", version.ref = "jakarta-inject-api" }
 
-ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-client-content-negotiation" }
-ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor-client-content-negotiation" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-client" }
+ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor-client" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-client" }
 
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }
 roborazzi-compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "roborazzi" }
 
-secrets-gradle-plugin = { module = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin", version.ref = "secrets-gradle-plugin" }
+secrets-gradle-plugin = { module = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin", version.ref = "secrets" }
 
 arrow-stack = { group = "io.arrow-kt", name = "arrow-stack", version.ref = "arrow" }
 arrow-core = { module = "io.arrow-kt:arrow-core", name = "arrow-core" }
@@ -152,13 +148,6 @@ arrow-optics-reflect = { module = "io.arrow-kt:arrow-optics-reflect", version.re
 
 kopykat-ksp = { module = "at.kopyk:kopykat-ksp", version.ref = "kopykat-ksp" }
 
-
-circuit-backstack = { module = "com.slack.circuit:circuit-backstack", version.ref = "circuit-foundation" }
-circuit-codegen = { module = "com.slack.circuit:circuit-codegen", version.ref = "circuit-foundation" }
-circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit-foundation" }
-circuit-overlay = { module = "com.slack.circuit:circuit-overlay", version.ref = "circuit-foundation" }
-circuit-runtime = { module = "com.slack.circuit:circuit-runtime", version.ref = "circuit-foundation" }
-
 coil = { module = "io.coil-kt:coil", version.ref = "coil-compose" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil-compose" }
@@ -168,7 +157,7 @@ coil-video = { module = "io.coil-kt:coil-video", version.ref = "coil-compose" }
 
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 
-desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugaring" }
 
 exoplayer-core = { module = "com.google.android.exoplayer:exoplayer-core", version.ref = "exoplayer-ui" }
 exoplayer-dash = { module = "com.google.android.exoplayer:exoplayer-dash", version.ref = "exoplayer-ui" }
@@ -199,13 +188,13 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 
-ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-client-okhttp" }
-
 ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref = "ktorfit" }
 ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit" }
 
 quiver-test = { module = "app.cash.quiver:lib-test", version.ref = "quiver" }
 quiver = { module = "app.cash.quiver:lib", version.ref = "quiver" }
+
+lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieVersion" }
 
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 
@@ -219,26 +208,31 @@ orbit-core = { module = "org.orbit-mvi:orbit-core", version.ref = "orbit-core" }
 orbit-test = { module = "org.orbit-mvi:orbit-test", version.ref = "orbit-core" }
 orbit-viewmodel = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbit-core" }
 
-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "play-services-location" }
-
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 tink-android = { module = "com.google.crypto.tink:tink-android", version.ref = "tink-android" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 
+junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "jUnit5Version" }
+junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "jUnit5Version" }
+junit-jupiter-params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "jUnit5Version" }
+kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "assertionsVersion" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockkVersion" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version = "1.6.2" }
-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
 material3 = { group = "androidx.compose.material3", name = "material3" }
-utils-testing-ui-activity = { module = "com.bumble.appyx:utils-testing-ui-activity", version.ref = "appyx-navigation-android" }
-utils-testing-ui = { module = "com.bumble.appyx:utils-testing-ui", version.ref = "appyx-navigation-android" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version = "1.6.5" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+utils-testing-ui-activity = { module = "com.bumble.appyx:utils-testing-ui-activity", version.ref = "appyx" }
+utils-testing-ui = { module = "com.bumble.appyx:utils-testing-ui", version.ref = "appyx" }
+
 uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
 benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmark-macro-junit4" }
 
@@ -255,5 +249,4 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 dependencygraph = { id = "com.savvasdalkitsis.module-dependency-graph", version.ref = "dependencygraph" }
 dependencycheck = { id = "org.owasp.dependencycheck", version.ref = "dependencycheck" }
-org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 androidTest = { id = "com.android.test", version.ref = "agp" }
