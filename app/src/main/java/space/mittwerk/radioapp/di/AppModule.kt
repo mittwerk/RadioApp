@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class AppModule {
     @Provides
     @Singleton
-    fun provideContextProvider(): CoroutineContextProvider = CoroutineContextProviderImpl()
+    fun provideCoroutineContext(): CoroutineContextProvider = CoroutineContextProviderImpl()
 
     @Provides
     @Singleton

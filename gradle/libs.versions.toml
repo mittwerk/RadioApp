@@ -32,6 +32,7 @@ kotlin = "1.9.23"
 ktlint = "12.1.0"
 core-ktx = "1.12.0"
 junit = "4.13.2"
+compose-lint-checks = "1.3.1"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 kotlinx-collections-immutable = "0.3.7"
@@ -125,6 +126,9 @@ jakarta-inject-api = { module = "jakarta.inject:jakarta.inject-api", version.ref
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-client" }
 ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor-client" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-client" }
+
+compose-lint-checks = { module = "com.slack.lint.compose:compose-lint-checks", version.ref = "compose-lint-checks" }
+
 
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }

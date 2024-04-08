@@ -7,7 +7,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import arrow.core.Either
 import org.orbitmvi.orbit.compose.collectAsState
-import space.mittwerk.radioapp.ui.presenter.GetSomeModelUseCase
 import space.mittwerk.radioapp.ui.presenter.SomeViewModel
 import space.mittwerk.radioapp.ui.theme.RadioAppTheme
 import space.mittwerk.radioapp.ui.utils.UIModePreviews
@@ -30,6 +29,6 @@ fun MainScreen(
 @Composable
 fun MainScreenPreview() {
     RadioAppTheme {
-        MainScreen(viewModel = SomeViewModel(GetSomeModelUseCase { Either.Left(emptyList()) }))
+        MainScreen(viewModel = SomeViewModel { Either.Left(emptyList()) })
     }
 }

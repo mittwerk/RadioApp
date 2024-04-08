@@ -155,6 +155,8 @@ dependencies {
     // Interceptor
     implementation(libs.logging.interceptor)
 
+    lintChecks(libs.compose.lint.checks)
+
     // Functional programming
     implementation(platform(libs.arrow.stack))
     implementation(libs.arrow.core)

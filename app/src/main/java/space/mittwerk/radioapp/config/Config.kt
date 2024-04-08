@@ -1,7 +1,7 @@
 package space.mittwerk.radioapp.config
 
+import jakarta.inject.Inject
 import space.mittwerk.radioapp.BuildConfig
-import javax.inject.Inject
 
 class Config
 @Inject
