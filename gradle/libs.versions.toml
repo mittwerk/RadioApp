@@ -3,7 +3,6 @@ accompanist-systemuicontroller = "0.34.0"
 acra = "5.11.3"
 agp = "8.3.1"
 android-database-sqlcipher = "4.5.4"
-animatedNavigationBar = "1.0.0"
 appyx = "2.0.0-alpha10"
 arrow = "1.2.4"
 coil-compose = "2.6.0"
@@ -109,7 +108,6 @@ androidx-work-multiprocess = { module = "androidx.work:work-multiprocess", versi
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work-multiprocess" }
 androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "work-multiprocess" }
 
-animated-navigation-bar = { module = "com.exyte:animated-navigation-bar", version.ref = "animatedNavigationBar" }
 appyx-navigation-android = { module = "com.bumble.appyx:appyx-navigation-android", version.ref = "appyx" }
 appyx-processor = { module = "com.bumble.appyx:appyx-processor", version.ref = "appyx" }
 backstack-android = { module = "com.bumble.appyx:backstack-android", version.ref = "appyx" }

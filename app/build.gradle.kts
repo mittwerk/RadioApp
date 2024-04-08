@@ -208,9 +208,6 @@ dependencies {
     implementation(libs.exoplayer.dash)
     implementation(libs.exoplayer.ui)
 
-    // Bottom Navigation Bar
-    implementation(libs.animated.navigation.bar)
-
     // Datetime
     implementation(libs.kotlinx.datetime)
 
