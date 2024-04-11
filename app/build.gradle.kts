@@ -72,6 +72,9 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    tasks.withType<Test>().configureEach {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
@@ -167,12 +170,15 @@ dependencies {
     implementation(libs.arrow.annotations)
     implementation(libs.arrow.resilience)
     implementation(libs.arrow.atomic)
+    implementation(libs.arrow.evaluation)
     implementation(libs.arrow.fx.stm)
     implementation(libs.arrow.optics.reflect)
+    implementation(libs.arrow.optics.compose)
     ksp(libs.arrow.optics.ksp.plugin)
 
     // Mapping
     ksp(libs.kopykat.ksp)
+    ksp(libs.kopykat)
 
     // Crash reporting
     implementation(libs.acra.mail)
@@ -253,13 +259,13 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.kotest.runner.junit5)
     testImplementation(libs.kotest.property)
+    testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi)
     testImplementation(libs.roborazzi.compose)
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)
     testRuntimeOnly(libs.junit.jupiter.engine)
-    testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
 
     // Android Testing

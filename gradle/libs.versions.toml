@@ -1,7 +1,7 @@
 [versions]
 accompanist-systemuicontroller = "0.34.0"
 acra = "5.11.3"
-agp = "8.3.1"
+agp = "8.3.2"
 android-database-sqlcipher = "4.5.4"
 appyx = "2.0.0-alpha10"
 arrow = "1.2.4"
@@ -26,7 +26,7 @@ hilt-navigation-compose = "1.2.0"
 jakarta-inject-api = "2.0.1"
 jsoup = "1.17.2"
 konsist = "0.15.1"
-kopykat-ksp = "1.0.4"
+kopykat = "1.0.4"
 kotest-runner-junit5 = "5.8.1"
 kotlin = "1.9.23"
 ktlint = "12.1.0"
@@ -144,13 +144,17 @@ arrow-atomic = { module = "io.arrow-kt:arrow-atomic", name = "arrow-atomic" }
 arrow-fx-stm = { module = "io.arrow-kt:arrow-fx-stm", name = "arrow-fx-stm" }
 arrow-optics = { module = "io.arrow-kt:arrow-optics", name = "arrow-optics" }
 arrow-resilience = { module = "io.arrow-kt:arrow-resilience", name = "arrow-resilience" }
+arrow-evaluation = { module = "io.arrow-kt:arrow-eval", name = "arrow-evaluation" }
 
 arrow-core-retrofit = { module = "io.arrow-kt:arrow-core-retrofit", version.ref = "arrow" }
 arrow-core-serialization = { module = "io.arrow-kt:arrow-core-serialization", version.ref = "arrow" }
 arrow-optics-ksp-plugin = { module = "io.arrow-kt:arrow-optics-ksp-plugin", version.ref = "arrow" }
 arrow-optics-reflect = { module = "io.arrow-kt:arrow-optics-reflect", version.ref = "arrow" }
+arrow-optics-compose = { module = "io.arrow-kt:arrow-optics-compose", version.ref = "arrow" }
 
-kopykat-ksp = { module = "at.kopyk:kopykat-ksp", version.ref = "kopykat-ksp" }
+
+kopykat = { module = "at.kopyk:kopykat", version.ref = "kopykat" }
+kopykat-ksp = { module = "at.kopyk:kopykat-ksp", version.ref = "kopykat" }
 
 coil = { module = "io.coil-kt:coil", version.ref = "coil-compose" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
@@ -180,8 +184,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 konsist = { module = "com.lemonappdev:konsist", version.ref = "konsist" }
-kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest-runner-junit5" }
-kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest-runner-junit5" }
+
 
 kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
 
@@ -220,8 +223,13 @@ truth = { module = "com.google.truth:truth", version.ref = "truth" }
 junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "jUnit5Version" }
 junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "jUnit5Version" }
 junit-jupiter-params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "jUnit5Version" }
+
 kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "assertionsVersion" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest-runner-junit5" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest-runner-junit5" }
+
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockkVersion" }
+
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 ui = { group = "androidx.compose.ui", name = "ui" }
