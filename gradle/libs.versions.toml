@@ -6,7 +6,6 @@ android-database-sqlcipher = "4.5.4"
 appyx = "2.0.0-alpha10"
 arrow = "1.2.4"
 coil-compose = "2.6.0"
-detektFormatting = "1.23.3"
 splashscreen = "1.0.1"
 dagger-android = "2.51.1"
 datastore = "1.0.0"
@@ -15,7 +14,7 @@ desugaring = "2.0.4"
 dependencygraph = "0.12"
 dependencycheck = "9.1.0"
 exoplayer-ui = "2.19.1"
-haze-materials = "0.6.2"
+haze-materials = "0.7.0"
 hilt-android = "2.51.1"
 jUnit5Version = "5.10.2"
 assertionsVersion = "5.8.1"
@@ -40,21 +39,21 @@ kotlinx-collections-immutable = "0.3.7"
 kotlinx-coroutines-android = "1.8.0"
 kotlinx-datetime = "0.5.0"
 kotlinx-serialization-json = "1.6.3"
-ktor-client = "2.3.9"
-quiver = "0.5.1"
+ktor-client = "2.3.10"
+quiver = "0.5.2"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.8.2"
 compose-bom = "2024.04.00"
-ktorfit = "1.12.0"
+ktorfit = "1.14.0"
 hilt = "2.51.1"
 ksp = "1.9.23-1.0.19"
 logging-interceptor = "5.0.0-alpha.12"
 molecule-runtime = "1.4.2"
 orbit-core = "7.0.1"
 paging-runtime-ktx = "3.3.0-beta01"
-radiobrowser4j = "3.0.0"
+radiobrowser4j = "3.0.1"
 robolectric = "4.12.1"
-roborazzi = "1.11.0"
+roborazzi = "1.12.0"
 room-runtime = "2.6.1"
 runtime-tracing = "1.0.0-beta01"
 secrets = "2.0.1"
@@ -114,8 +113,10 @@ appyx-navigation-android = { module = "com.bumble.appyx:appyx-navigation-android
 appyx-processor = { module = "com.bumble.appyx:appyx-processor", version.ref = "appyx" }
 backstack-android = { module = "com.bumble.appyx:backstack-android", version.ref = "appyx" }
 
-detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektFormatting" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+
 radiobrowser4j = { module = "de.sfuhrm:radiobrowser4j", version.ref = "radiobrowser4j" }
+
 spotlight-android = { module = "com.bumble.appyx:spotlight-android", version.ref = "appyx" }
 
 dagger-android = { module = "com.google.dagger:dagger-android", version.ref = "dagger-android" }

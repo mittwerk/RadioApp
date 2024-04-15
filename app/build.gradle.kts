@@ -85,7 +85,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.runtime.tracing)
 
-    implementation("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.3")
+    implementation(libs.detekt.formatting)
 
     // Jetpack Compose
     implementation(platform(libs.compose.bom))
