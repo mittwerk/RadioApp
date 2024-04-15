@@ -174,8 +174,8 @@ dependencies {
     implementation(libs.arrow.atomic)
     implementation(libs.arrow.evaluation)
     implementation(libs.arrow.fx.stm)
-    // implementation(libs.arrow.optics.reflect)
-    // implementation(libs.arrow.optics.compose)
+    implementation(libs.arrow.optics.reflect)
+    implementation(libs.arrow.optics.compose)
     ksp(libs.arrow.optics.ksp.plugin)
 
     // Mapping
