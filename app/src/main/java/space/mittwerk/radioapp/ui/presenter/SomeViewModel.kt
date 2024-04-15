@@ -13,6 +13,7 @@ import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.viewmodel.container
+import kotlin.reflect.KProperty
 
 class SomeViewModel(private val getSomeModelUseCase: GetSomeModelUseCase) :
     ContainerHost<ExampleState, ExampleSideEffect>,
@@ -127,6 +128,11 @@ val Either<UserNotFound, User>.user: User?
         }
 
 fun interface GetSomeModelUseCase : suspend () -> Either<List<SomeModel>, String>
+
+operator fun GetSomeModelUseCase.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): Either<List<SomeModel>, String> = emptyList<SomeModel>().left()
 
 private fun getSomeModelUseCase() = GetSomeModelUseCaseImpl()
 

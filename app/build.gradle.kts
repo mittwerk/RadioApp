@@ -85,6 +85,8 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.runtime.tracing)
 
+    implementation("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.3")
+
     // Jetpack Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
@@ -172,13 +174,12 @@ dependencies {
     implementation(libs.arrow.atomic)
     implementation(libs.arrow.evaluation)
     implementation(libs.arrow.fx.stm)
-    implementation(libs.arrow.optics.reflect)
-    implementation(libs.arrow.optics.compose)
+    // implementation(libs.arrow.optics.reflect)
+    // implementation(libs.arrow.optics.compose)
     ksp(libs.arrow.optics.ksp.plugin)
 
     // Mapping
     ksp(libs.kopykat.ksp)
-    ksp(libs.kopykat)
 
     // Crash reporting
     implementation(libs.acra.mail)
