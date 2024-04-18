@@ -106,7 +106,6 @@ dependencies {
     implementation(libs.kotlinx.collections.immutable)
 
     // Database
-    annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.paging)
@@ -126,10 +125,9 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     // Dagger
-    annotationProcessor(libs.dagger.android.processor)
-    annotationProcessor(libs.dagger.compiler)
     implementation(libs.dagger.android)
     implementation(libs.dagger.android.support)
+    ksp(libs.dagger.android.processor)
     ksp(libs.dagger.compiler)
 
     // Worker
@@ -166,6 +164,7 @@ dependencies {
     // Interceptor
     implementation(libs.logging.interceptor)
 
+    // Lint
     lintChecks(libs.compose.lint.checks)
 
     // Functional programming
@@ -184,7 +183,7 @@ dependencies {
     implementation(libs.arrow.optics.compose)
     ksp(libs.arrow.optics.ksp.plugin)
 
-    // Mapping
+    // Functional mapping
     ksp(libs.kopykat.ksp)
 
     // Crash reporting
