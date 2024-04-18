@@ -118,16 +118,19 @@ dependencies {
     // Radio API
     implementation(libs.radiobrowser4j)
 
-    // Dependency injection
+    // Dependency injection — Hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.hilt.work)
     ksp(libs.androidx.hilt.compiler)
     ksp(libs.hilt.compiler)
+
+    // Dagger
     annotationProcessor(libs.dagger.android.processor)
     annotationProcessor(libs.dagger.compiler)
     implementation(libs.dagger.android)
     implementation(libs.dagger.android.support)
+    ksp(libs.dagger.compiler)
 
     // Worker
     implementation(libs.androidx.work.runtime.ktx)
@@ -140,6 +143,9 @@ dependencies {
     // Accompanist
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.placeholder.material)
+
+    // Noise — Fast Fourier Transform
+    implementation(libs.noise)
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)

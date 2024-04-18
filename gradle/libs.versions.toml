@@ -6,6 +6,7 @@ android-database-sqlcipher = "4.5.4"
 appyx = "2.0.0-alpha10"
 arrow = "1.2.4"
 coil-compose = "2.6.0"
+noise = "2.0.0"
 splashscreen = "1.0.1"
 dagger-android = "2.51.1"
 datastore = "1.0.0"
@@ -115,6 +116,7 @@ backstack-android = { module = "com.bumble.appyx:backstack-android", version.ref
 
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
+noise = { module = "com.github.paramsen:noise", version.ref = "noise" }
 radiobrowser4j = { module = "de.sfuhrm:radiobrowser4j", version.ref = "radiobrowser4j" }
 
 spotlight-android = { module = "com.bumble.appyx:spotlight-android", version.ref = "appyx" }
