@@ -1,13 +1,19 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.dependencycheck)
+    alias(libs.plugins.dependencygraph)
+    alias(libs.plugins.kover)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktorfit)
     alias(libs.plugins.hilt)
     alias(libs.plugins.serialization)
-    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
-    id("kotlin-parcelize")
-    id("com.google.relay") version "0.3.11"
+    alias(libs.plugins.spotless)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.secrets)
+    alias(libs.plugins.relay)
 }
 
 secrets {
@@ -32,6 +38,7 @@ android {
     }
 
     buildTypes {
+
         release {
             isMinifyEnabled = true
             isShrinkResources = true
@@ -40,6 +47,7 @@ android {
                 "proguard-rules.pro",
             )
         }
+
         debug {
             isMinifyEnabled = false
             isShrinkResources = false
@@ -57,21 +65,37 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = "17"
     }
+
     buildFeatures {
         buildConfig = true
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
+
+    ksp {
+        arg("generate", "annotated")
+        arg("mutableCopy", "true")
+        arg("copyMap", "true")
+        arg("hierarchyCopy", "true")
     }
+
+    hilt {
+        enableAggregatingTask = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.12"
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
     }
@@ -84,6 +108,9 @@ dependencies {
     implementation(libs.activity.compose)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.runtime.tracing)
+
+    // Detekt plugins
+    detektPlugins(libs.detekt.formatting)
 
     // Jetpack Compose
     implementation(platform(libs.compose.bom))
@@ -173,12 +200,11 @@ dependencies {
     implementation(libs.arrow.evaluation)
     implementation(libs.arrow.fx.stm)
     implementation(libs.arrow.optics.reflect)
-    implementation(libs.arrow.optics.compose)
     ksp(libs.arrow.optics.ksp.plugin)
 
     // Mapping
     ksp(libs.kopykat.ksp)
-    ksp(libs.kopykat)
+    compileOnly(libs.kopykat.annotations)
 
     // Crash reporting
     implementation(libs.acra.mail)
@@ -270,12 +296,17 @@ dependencies {
 
     // Android Testing
     androidTestImplementation(libs.androidx.work.testing)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
 
+    androidTestImplementation(platform(libs.compose.bom))
+
+    androidTestImplementation(libs.androidx.test.ext.junit)
+
+    androidTestImplementation(libs.espresso.core)
+
+    androidTestImplementation(platform(libs.compose.bom))
+
+    androidTestImplementation(libs.ui.test.junit4)
+
+    debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 }

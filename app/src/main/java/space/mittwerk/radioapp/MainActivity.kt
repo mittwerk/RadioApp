@@ -41,7 +41,7 @@ class MainActivity : NodeComponentActivity() {
                 ) {
                     NodeHost(
                         lifecycle = AndroidLifecycle(LocalLifecycleOwner.current.lifecycle),
-                        integrationPoint = appyxV2IntegrationPoint,
+                        integrationPoint = appyxIntegrationPoint,
                     ) {
                         RootNode(it)
                     }

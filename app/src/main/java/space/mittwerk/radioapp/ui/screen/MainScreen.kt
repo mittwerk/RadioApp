@@ -1,13 +1,10 @@
 package space.mittwerk.radioapp.ui.screen
 
+// import space.mittwerk.radioapp.ui.presenter.SomeViewModel
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import arrow.core.Either
-import org.orbitmvi.orbit.compose.collectAsState
-import space.mittwerk.radioapp.ui.presenter.SomeViewModel
 import space.mittwerk.radioapp.ui.theme.RadioAppTheme
 import space.mittwerk.radioapp.ui.utils.UIModePreviews
 
@@ -15,9 +12,9 @@ import space.mittwerk.radioapp.ui.utils.UIModePreviews
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    viewModel: SomeViewModel,
+//    viewModel: SomeViewModel,
 ) {
-    val state by viewModel.collectAsState()
+//    val state by viewModel.collectAsState()
 
     Box(modifier = modifier) {
         Text(text = "Main Screen")
@@ -27,8 +24,10 @@ fun MainScreen(
 @Suppress("ktlint:standard:function-naming")
 @UIModePreviews
 @Composable
-fun MainScreenPreview() {
+private fun MainScreenPreview() {
     RadioAppTheme {
-        MainScreen(viewModel = SomeViewModel { Either.Left(emptyList()) })
+//       MainScreen(viewModel = SomeViewModel { Either.Left(emptyList()) })
     }
 }
+
+data class Wedwe(val a: String)
