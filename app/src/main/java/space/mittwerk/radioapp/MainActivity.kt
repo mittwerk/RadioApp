@@ -10,7 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import com.bumble.appyx.navigation.integration.NodeComponentActivity
+import com.bumble.appyx.navigation.integration.NodeActivity
 import com.bumble.appyx.navigation.integration.NodeHost
 import com.bumble.appyx.navigation.platform.AndroidLifecycle
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +18,7 @@ import space.mittwerk.radioapp.navigation.RootNode
 import space.mittwerk.radioapp.ui.theme.RadioAppTheme
 
 @AndroidEntryPoint
-class MainActivity : NodeComponentActivity() {
+class MainActivity : NodeActivity() {
 //    @Inject
 //    private lateinit var viewModel: SomeViewModel
 

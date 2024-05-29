@@ -14,6 +14,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.secrets)
     alias(libs.plugins.relay)
+    alias(libs.plugins.compose.compiler)
 }
 
 secrets {
@@ -87,7 +88,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.12"
+        //  kotlinCompilerExtensionVersion = "1.5.12"
     }
 
     packaging {
@@ -181,6 +182,8 @@ dependencies {
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.websockets)
+
+    implementation(libs.androidx.startup.runtime)
 
     // Interceptor
     implementation(libs.logging.interceptor)

@@ -17,4 +17,5 @@ plugins {
     alias(libs.plugins.dependencycheck) apply false
     alias(libs.plugins.androidTest) apply false
     alias(libs.plugins.kover) apply false
+    alias(libs.plugins.compose.compiler) apply false
 }

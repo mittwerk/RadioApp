@@ -20,69 +20,71 @@ import com.bumble.appyx.navigation.node.node
 import jakarta.inject.Inject
 
 open class RootNode
-@Inject
-constructor(
-    nodeContext: NodeContext,
-    private val backStack: BackStack<NavTarget> =
-        BackStack(
-            model =
-            BackStackModel(
-                initialTarget = NavTarget.Child1,
-                savedStateMap = nodeContext.savedStateMap,
-            ),
-            visualisation = { BackStackFader(it) },
-        ),
-) : Node<NavTarget>(
-    appyxComponent = backStack,
-    nodeContext = nodeContext,
-) {
-    override fun buildChildNode(
-        navTarget: NavTarget,
+    @Inject
+    constructor(
         nodeContext: NodeContext,
-    ): Node<*> =
-        when (navTarget) {
-            NavTarget.Child1 -> node(nodeContext) {
-                Text(
-                    text = "Placeholder for child 1",
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
-            NavTarget.Child2 -> node(nodeContext) { Text(text = "Placeholder for child 2") }
-            NavTarget.Child3 -> SomeChildNode(nodeContext)
-        }
-
-    @Composable
-    override fun Content(modifier: Modifier) {
-        Column(
-            modifier = modifier,
+        private val backStack: BackStack<NavTarget> =
+            BackStack(
+                model =
+                    BackStackModel(
+                        initialTarget = NavTarget.Child1,
+                        savedStateMap = nodeContext.savedStateMap,
+                    ),
+                visualisation = { BackStackFader(it) },
+            ),
+    ) : Node<NavTarget>(
+            appyxComponent = backStack,
+            nodeContext = nodeContext,
         ) {
-            // Let's include the elements of our component into the composition
-            AppyxNavigationContainer(
-                appyxComponent = backStack,
-                modifier = Modifier.weight(0.9f),
-            )
+        override fun buildChildNode(
+            navTarget: NavTarget,
+            nodeContext: NodeContext,
+        ): Node<*> =
+            when (navTarget) {
+                NavTarget.Child1 ->
+                    node(nodeContext) {
+                        Text(
+                            text = "Placeholder for child 1",
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                    }
 
-            // Let's also add some controls so we can test it
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .weight(0.1f),
+                NavTarget.Child2 -> node(nodeContext) { Text(text = "Placeholder for child 2") }
+                NavTarget.Child3 -> SomeChildNode(nodeContext)
+            }
+
+        @Composable
+        override fun Content(modifier: Modifier) {
+            Column(
+                modifier = modifier,
             ) {
-                TextButton(onClick = { backStack.push(NavTarget.Child1) }) {
-                    Text(text = "Push child 1")
-                }
-                TextButton(onClick = { backStack.push(NavTarget.Child2) }) {
-                    Text(text = "Push child 2")
-                }
-                TextButton(onClick = { backStack.push(NavTarget.Child3) }) {
-                    Text(text = "Push child 3")
-                }
-                TextButton(onClick = { backStack.pop() }) {
-                    Text(text = "Pop")
+                // Let's include the elements of our component into the composition
+                AppyxNavigationContainer(
+                    appyxComponent = backStack,
+                    modifier = Modifier.weight(0.9f),
+                )
+
+                // Let's also add some controls so we can test it
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .weight(0.1f),
+                ) {
+                    TextButton(onClick = { backStack.push(NavTarget.Child1) }) {
+                        Text(text = "Push child 1")
+                    }
+                    TextButton(onClick = { backStack.push(NavTarget.Child2) }) {
+                        Text(text = "Push child 2")
+                    }
+                    TextButton(onClick = { backStack.push(NavTarget.Child3) }) {
+                        Text(text = "Push child 3")
+                    }
+                    TextButton(onClick = { backStack.pop() }) {
+                        Text(text = "Pop")
+                    }
                 }
             }
         }
     }
-}
